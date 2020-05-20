@@ -17,7 +17,7 @@
     <p id="score">0</p>
     <canvas id="gameCanvas" width="300" height="300"></canvas>
   </div>
-  <style>
+  <style type="text/css">
      body{
        margin:0;
      }
@@ -113,7 +113,7 @@
               }
   </style>
 </body>
-<script>
+<script type="text/javascript">
   var GAME_SPEED;
   const CANVAS_BORDER_COLOUR = 'black';
   const CANVAS_BACKGROUND_COLOUR = "white";
@@ -121,18 +121,17 @@
   const SNAKE_BORDER_COLOUR = 'darkgreen';
   const FOOD_COLOUR = 'red';
   const FOOD_BORDER_COLOUR = 'darkred';
-    const gameCanvas = document.getElementById("gameCanvas");
-    const ctx = gameCanvas.getContext("2d");
+  const gameCanvas = document.getElementById("gameCanvas");
+  const ctx = gameCanvas.getContext("2d");
     function clearCanvas() {
   ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
   ctx.strokeStyle = CANVAS_BORDER_COLOUR;
   ctx.fillRect(0,0, gameCanvas.width, gameCanvas.height);
   ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
-
-}
-   var cvs=document.getElementById('canvas');
-   var btns=document.getElementById('buttons');
-document.getElementById('btn1').addEventListener("click",function(){
+    }
+  var cvs=document.getElementById('canvas');
+  var btns=document.getElementById('buttons');
+  document.getElementById('btn1').addEventListener("click",function(){
      cvs.style.display="block";
      btns.style.display="none";
      GAME_SPEED=300;
@@ -140,8 +139,8 @@ document.getElementById('btn1').addEventListener("click",function(){
       createfood(snake);
       move(snake,d);
       createmaze();
-});
-document.getElementById('btn2').addEventListener('click',function(){
+   })
+  document.getElementById('btn2').addEventListener('click',function(){
   cvs.style.display="block";
   btns.style.display="none";
   GAME_SPEED=200;
@@ -149,7 +148,7 @@ document.getElementById('btn2').addEventListener('click',function(){
     createfood(snake);
     move(snake,d);
     createmaze();
-})
+  })
 document.getElementById('btn3').addEventListener('click',function(){
     cvs.style.display="block";
     btns.style.display="none";
@@ -158,8 +157,7 @@ document.getElementById('btn3').addEventListener('click',function(){
     createfood(snake);
     move(snake,d);
     createmaze();
-
-})
+  })
 document.getElementById('btn4').addEventListener('click',function(){
   customspeed();
   cvs.style.display="block";
@@ -212,6 +210,7 @@ function createfood(snake)
    while(IsFoodOnSnakeorMaze(snake,foodx,foody))
    createfood(snake);
 }
+	
 function eatfood(a,b,snake,snakeR)
 {
   if(a==snake[0].x&&b==snake[0].y)
@@ -223,6 +222,7 @@ function eatfood(a,b,snake,snakeR)
   document.getElementById("score").innerHTML=score;
   }
 }
+	
 function IsFoodOnSnakeorMaze(snake,foodx,foody)
 {
   for(let i=0;i<snake.length;i++)
@@ -242,6 +242,7 @@ function IsFoodOnSnakeorMaze(snake,foodx,foody)
   }
   return false;
 }
+	
 function createmaze(){
   for(var i=0;i<13;i++)
   {
@@ -254,8 +255,6 @@ function createmaze(){
     ctx.fillRect(150,10*i,10,10);
   }
 }
-
-
 
 let d="RIGHT";
 function cleartale(snake,snakeR)
